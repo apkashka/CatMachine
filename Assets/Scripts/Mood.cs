@@ -7,14 +7,14 @@ public enum Mood
     Good,
     Excellent
 }
-public class MoodComparer : IEqualityComparer<Mood>
+public class MoodComparer : EqualityComparer<Mood>
 {
-    public bool Equals(Mood x, Mood y)
+    public override bool Equals(Mood x, Mood y)
     {
         return (int)x == (int)y;
     }
 
-    public int GetHashCode(Mood obj)
+    public override int GetHashCode(Mood obj)
     {
         return 17 + 31 * (int)obj;
     }
